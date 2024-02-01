@@ -1,6 +1,10 @@
+import Intro from "../components/main/Intro";
+
 const Main = () => {
   return(
-    <div>메인 페이지</div>
+    <>
+      <Intro />
+    </>
   );
 };
 

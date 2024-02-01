@@ -1,8 +1,14 @@
+import Router from "./shared/Router";
+import Header from "./shared/Header";
+import Footer from "./shared/Footer";
+
 function App() {
   return (
-    <div>
-      <h1>Solution Challenge 2024</h1>
-    </div>
+    <>
+      <Header />
+      <Router />
+      <Footer />
+    </>
   );
 }
 

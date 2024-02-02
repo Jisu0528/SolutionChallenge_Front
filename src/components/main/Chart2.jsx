@@ -1,8 +1,9 @@
-import { ResponsiveBar } from '@nivo/bar'
+import { ResponsiveBar } from '@nivo/bar';
+import styled from 'styled-components';
 
 const MyResponsiveBar = () => {
   return (
-    <div style={{width: '350px', height: '320px', margin: '0', background: '#FFFFFF'}}>
+    <Wrapper>
       <ResponsiveBar
         data={
           [
@@ -139,8 +140,16 @@ const MyResponsiveBar = () => {
         ariaLabel="Nivo bar chart demo"
         barAriaLabel={e=>e.id+": "+e.formattedValue+" in country: "+e.indexValue}
       />
-    </div>
-  )
-}
+    </Wrapper>
+  );
+};
+
+const Wrapper = styled.div`
+    width: 350px;
+    height: 320px; 
+    margin: 0; 
+    background: #FFFFFF;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+`;
 
 export default MyResponsiveBar;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // 차트 예시
 const MyResponsiveLine = () => {
   return (
-    <div style={{width: '1100px', height: '400px', margin: '0'}}>
+    <Wrapper>
       <Title>Chart Title1</Title>
       <div style={{width: '1100px', height: '320px', margin: '0 auto'}}>
         <ResponsiveLine
@@ -108,9 +108,17 @@ const MyResponsiveLine = () => {
           ]}
         />
       </div>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  width: 1100px;
+  height: 400px;
+  margin: 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  background-color: #FFFFFF;
+`
 
 const Title = styled.div`
   font-size: 20px;

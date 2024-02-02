@@ -6,12 +6,15 @@ const Report = () => {
   return(
     <Wrapper>
       <Title>Drug Gaurd Report</Title>
-      <Chart1 />
-      <MiniChart>
-        <Chart2 />
-        <Chart2 />
-        <Chart2 />
-      </MiniChart>
+      <Charts>
+        <Chart1 />
+        <MiniChart>
+          <Chart2 />
+          <Chart2 />
+          <Chart2 />
+        </MiniChart>
+      </Charts>
+
     </Wrapper>
   )
 }
@@ -24,6 +27,12 @@ const Wrapper = styled.div`
 const Title = styled.div`
  font-size: 42px;
  font-weight: 600;
+`;
+
+const Charts = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 `;
 
 const MiniChart = styled.div`

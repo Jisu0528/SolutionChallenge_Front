@@ -24,16 +24,16 @@ const Tabs = styled.div`
 `;
 
 const Tab = styled.button`
-  background-color: ${({ isSelected }) => isSelected ? '#4B4EFC' : '#FFFFFF'};
+  background-color: ${({ isSelected }) => isSelected ? '#FFFFFF' : '#4B4EFC'};
   border-radius: 30px 30px 0 0;
-  color: ${({ isSelected }) => isSelected ? '#FFFFFF' : '#4B4EFC'};;
+  color: ${({ isSelected }) => isSelected ? '#4B4EFC' : '#FFFFFF'};;
   font-size: 22px;
   font-weight: 600;
   width: 185px;
   height: 65px;
   cursor: pointer;
   border: none;
-  box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px -3px 10px rgba(0, 0, 0, 0.1);
   position: relative;
 
   &.active::before {
@@ -44,7 +44,7 @@ const Tab = styled.button`
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
-    background-color: #5263ff;
+    background-color: #FFFFFF;
     border-radius: 50%;
   }
 `;
@@ -55,7 +55,7 @@ const BlueLine = styled.span`
   bottom: 0;
   width: 5px;
   height: 50px;
-  background-color: #FFFFFF;
+  background-color: #4B4EFC;
 `;
 
 export default TabComponent;

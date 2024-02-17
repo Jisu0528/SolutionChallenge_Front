@@ -88,6 +88,7 @@ const Wrapper = styled.table`
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 `;
 
 const Thead = styled.thead`

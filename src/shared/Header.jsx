@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import Logo from "../assests/logo.png";
 
 const Header = () => {
   return (
     <Wrapper>
-      <Logo>SolutionChallenge</Logo>
+      <img src={Logo} />
 
       <NavGroup>
         <NavLinkStyled to='/'>Home</NavLinkStyled>
@@ -19,15 +20,10 @@ const Header = () => {
 
 const Wrapper = styled.header`
   display: flex;
-  margin: 40px auto;
+  margin: 15px auto;
   padding: 0 120px;
   justify-content: space-between;
-  align-items: flex-end;
-`;
-
-const Logo = styled.div`
-  font-size: 32px;
-  font-weight: 600;
+  align-items: center;
 `;
 
 const NavGroup = styled.nav`

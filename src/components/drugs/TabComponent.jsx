@@ -33,7 +33,7 @@ const Tab = styled.button`
   height: 65px;
   cursor: pointer;
   border: none;
-  box-shadow: 4px 0px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.1);
   position: relative;
 
   &.active::before {

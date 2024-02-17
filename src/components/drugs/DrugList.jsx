@@ -4,17 +4,17 @@ import Prev from "../../assests/prev.png";
 import Next from "../../assests/next.png";
 import pagination from "../../shared/Pagination";
 
-export default function DrugList() {
+export default function DrugList({ selectedType }) {
   // 임시 마약 데이터
   const drugData = [
-    {id:0, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "Opium", medicalUse: "microanesthesia"},
-    {id:1, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "Opium", medicalUse: "microanesthesia"},
-    {id:2, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "Opium", medicalUse: "microanesthesia"},
-    {id:3, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "Opium", medicalUse: "microanesthesia"},
-    {id:4, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "Opium", medicalUse: "microanesthesia"},
-    {id:5, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "Opium", medicalUse: "microanesthesia"},
-    {id:6, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "Opium", medicalUse: "microanesthesia"},
-    {id:7, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "Opium", medicalUse: "microanesthesia"},
+    {id:0, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "natural drug", medicalUse: "microanesthesia"},
+    {id:1, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "natural drug", medicalUse: "microanesthesia"},
+    {id:2, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "synthetic drug", medicalUse: "microanesthesia"},
+    {id:3, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "synthetic drug", medicalUse: "microanesthesia"},
+    {id:4, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "psychotropic drugs", medicalUse: "microanesthesia"},
+    {id:5, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "psychotropic drugs", medicalUse: "microanesthesia"},
+    {id:6, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "hemp", medicalUse: "microanesthesia"},
+    {id:7, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "hemp", medicalUse: "microanesthesia"},
   ];
 
   const itemsPerPage = 7; // 페이지 당 보여줄 아이템 수
@@ -26,7 +26,7 @@ export default function DrugList() {
     goToPrevPage,
     goToNextPage,
   } = pagination(
-    drugData, // 데이터를 frontData로 변경
+    selectedType ? drugData.filter(drug => drug.type === selectedType) : drugData,
     itemsPerPage
   );
 

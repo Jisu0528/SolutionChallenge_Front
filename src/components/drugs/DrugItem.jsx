@@ -22,10 +22,11 @@ const Wrapper = styled.tr`
   border: 2px solid rgb(75, 78, 252, 0.1);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 const Td = styled.td`
+  width: 300px;
   font-size: 20px;
   font-weight: 500;
   display: flex;
@@ -36,7 +37,7 @@ const Image = styled.img`
   width: 90px;
   height: 50px;
   border-radius: 5px;
-  margin-right: 20px;
+  margin-left: 180px;
 `;
 
 export default DrugItem;

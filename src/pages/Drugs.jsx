@@ -5,7 +5,7 @@ import TabComponent from "../components/drugs/TabComponent";
 
 const Drugs = () => {
   const [selectedType, setSelectedType] = useState(null);
-  const types = ["natural drug", "synthetic drug", "psychotropic drugs", "hemp"];
+  const types = ["natural drug", "synthetic drug", "psychotropic drug", "hemp"];
   
   const handleTabClick = (type) => {
     setSelectedType(type);

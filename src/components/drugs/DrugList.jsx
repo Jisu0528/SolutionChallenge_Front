@@ -11,8 +11,8 @@ export default function DrugList({ selectedType }) {
     {id:1, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "natural drug", medicalUse: "microanesthesia"},
     {id:2, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "synthetic drug", medicalUse: "microanesthesia"},
     {id:3, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "synthetic drug", medicalUse: "microanesthesia"},
-    {id:4, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "psychotropic drugs", medicalUse: "microanesthesia"},
-    {id:5, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "psychotropic drugs", medicalUse: "microanesthesia"},
+    {id:4, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "psychotropic drug", medicalUse: "microanesthesia"},
+    {id:5, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "psychotropic drug", medicalUse: "microanesthesia"},
     {id:6, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "hemp", medicalUse: "microanesthesia"},
     {id:7, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "hemp", medicalUse: "microanesthesia"},
   ];
@@ -37,9 +37,9 @@ export default function DrugList({ selectedType }) {
           <Thead>
             <Tr>
               <Th></Th>
-              <th>Name</th>
-              <th>Type</th>
-              <th>medical use</th>          
+              <Th>Name</Th>
+              <Th>Type</Th>
+              <Th>medical use</Th>          
             </Tr>
           </Thead>
           <Tbody>
@@ -94,15 +94,15 @@ const Thead = styled.thead`
 const Tr = styled.tr`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 1200px;
   height: 80px;
   font-size: 26px;
-  font-weight: 600;
 `;
 
 const Th = styled.th`
-  width: 100px;
+  width: 300px;
+  display: flex;
 `;
 
 const Tbody = styled.tbody`

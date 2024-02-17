@@ -1,15 +1,31 @@
+import React, { useState, useEffect } from "react";
 import CaseList from "./CaseSlide";
 import styled from "styled-components";
+import axios from "axios";
+
+// const api = axios.create({
+//   baseURL: 'http://34.64.87.200:8000',
+// });
 
 export default function UseCase() {
-  // 임시 데이터
-  const caseData = [
-    { id:0, imageUrl:require('../../assests/drugImage.png'), title: "cases of unintentional drug abuse title 1"},
-    { id:1, imageUrl:require('../../assests/drugImage.png'), title: "cases of unintentional drug abuse title 2"},
-    { id:2, imageUrl:require('../../assests/drugImage.png'), title: "cases of unintentional drug abuse title 3"},
-    { id:3, imageUrl:require('../../assests/drugImage.png'), title: "cases of unintentional drug abuse title 4"},
-    { id:4, imageUrl:require('../../assests/drugImage.png'), title: "cases of unintentional drug abuse title 5"},
-  ];
+  const [caseData, setCaseData] = useState([]);
+
+
+  useEffect(() => {
+    const fetchCaseData = async () => {
+      try {
+        const response = await axios.get('/safeguardian');
+        if (response.status === 200) {
+          setCaseData(response.data);
+        } else {
+          console.error(response.data);
+        }
+      } catch (error) {
+        console.error('error: ', error);
+      }
+    }
+    fetchCaseData();
+  }, []);
 
   return (
     <Wrapper>

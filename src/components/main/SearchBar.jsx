@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Search from "../../assests/search.png";
 import { useNavigate } from "react-router-dom";
 
-const SearchBar = () => {
+const SearchBar = ({ containerWidth, containerHeight, imgWidth, imgHeight, inputFontSize }) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
 
@@ -23,9 +23,9 @@ const SearchBar = () => {
   };
 
   return (
-    <Container>
+    <Container width={containerWidth} height={containerHeight}>
       <Button type="button" id="search_btn" onClick={handleSearch}>
-        <img src={Search} alt="Search" />
+        <Img src={Search} alt="Search" width={imgWidth} height={imgHeight} />
       </Button>
       <Input 
         placeholder="Enter drug name, conditions, etc" 
@@ -34,6 +34,7 @@ const SearchBar = () => {
         value={search}
         onChange={onChange}
         onKeyDown={handleKeyDown}
+        fontSize={inputFontSize}
       />
     </Container>
   );
@@ -43,11 +44,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  margin: 30px auto 260px;
+  margin: 0;
   padding: 0 30px;
   box-sizing: border-box;
-  width: 1080px;
-  height: 60px;
+  width: ${({ width }) => width || "1080px"};
+  height: ${({ height }) => height || "60px"};
   background-color: transparent;
   border: 2px solid #4B4EFC;
   border-radius: 65px;
@@ -58,13 +59,19 @@ const Button = styled.button`
   background-color: transparent;
 `;
 
+const Img = styled.img`
+  width: ${({ width }) => width || "auto"};
+  height: ${({height}) => height || "auto"};
+`;
+
 const Input = styled.input`
   width: -webkit-fill-available;
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: ${({ fontSize }) => fontSize || "18px"};
   font-weight: 400;
   line-height: 20px;
+  background-color: transparent;
 `;
 
 export default SearchBar;

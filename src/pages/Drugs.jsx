@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import DrugList from '../components/drugs/DrugList';
 import TabComponent from "../components/drugs/TabComponent";
+import SearchBar from "../components/main/SearchBar";
 
 const Drugs = () => {
-  const [selectedType, setSelectedType] = useState(null);
+  const [selectedType, setSelectedType] = useState("natural drug");
   const types = ["natural drug", "synthetic drug", "psychotropic drug", "hemp"];
   
   const handleTabClick = (type) => {
@@ -18,7 +19,14 @@ const Drugs = () => {
           types={types}
           onTabClick={handleTabClick}
           selectedType={selectedType}
-        />        
+        />  
+        <SearchBar
+          containerWidth="420px"
+          containerHeight="45px"
+          imgWidth="40px"
+          imgHeight="35px"
+          inputFontSize="14px"
+        />      
       </TopContainer>
       <DrugList selectedType={selectedType} />
     </Wrapper>
@@ -37,7 +45,8 @@ const Wrapper = styled.div`
 const TopContainer = styled.div`
   width: 1400px;
   display: flex;
-  justify-content: flex-start;
-`
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export default Drugs;

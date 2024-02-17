@@ -40,6 +40,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   font-size: 44px;
   font-weight: 600;
+  margin-bottom: 30px;
 `;
 
 const Text = styled.span`
@@ -48,6 +49,7 @@ const Text = styled.span`
   width: 1080px;
   text-align: center;
   line-height: 28px;
+  margin-top: 260px;
 `;
 
 const Buttons = styled.div`

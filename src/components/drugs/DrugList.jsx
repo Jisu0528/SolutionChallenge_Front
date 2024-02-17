@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import DrugItem from "./DrugItem";
 import Prev from "../../assests/prev.png";
 import Next from "../../assests/next.png";
@@ -44,7 +45,9 @@ export default function DrugList({ selectedType }) {
           </Thead>
           <Tbody>
             {currentItems.map((drugs, index) => (
-              <DrugItem key={drugs.id} index={index} item={drugs} />
+              <Link to={`/drugs/${drugs.name}`} key={index} style={{ textDecoration: "none", color: "#3D3D3D"}}>
+                <DrugItem key={drugs.id} index={index} item={drugs} />                
+              </Link>
             ))}        
           </Tbody>        
         </div>

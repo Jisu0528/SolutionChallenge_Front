@@ -19,9 +19,9 @@ export default function DrugList({ drugData }) {
             </Tr>
           </thead>
           <tbody>
-            {drugData.map((drugs, index) => (
-              <Link to={`/drugs/${drugs.drug_nm}`} key={index} style={{ textDecoration: "none", color: "#3D3D3D"}}>
-                <DrugItem key={drugs.drug_id} index={index} item={drugs} />                
+            {drugData.map((drugs) => (
+              <Link to={`/drugs/${drugs.drug_id}`} key={drugs.drug_id} style={{ textDecoration: "none", color: "#3D3D3D"}}>
+                <DrugItem key={drugs.drug_id} index={drugs.drug_id} item={drugs} />                
               </Link>
             ))}        
           </tbody>        

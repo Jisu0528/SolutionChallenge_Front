@@ -1,40 +1,81 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import ImageBox from "../components/detail/ImageBox";
+import axios from "axios";
+import { useParams } from 'react-router-dom';
 
 const Detail = () => {
+  const { drugid } = useParams();
+  console.log('drugId:', drugid);
+  const [detailData, setDetailData] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchDetailData = async () => {
+      try {
+        const response = await axios.get(`/safeguardian/drug_type/${drugid}`);
+        if (response.status === 200) {
+          setDetailData(response.data);
+        }
+      } catch (error) {
+        console.error('error: ', error);
+      }
+    };
+    fetchDetailData();
+  }, [drugid]);
+
+  // 자동 슬라이드
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (detailData && detailData.images && detailData.images.length > 0) {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % detailData.images.length);
+      }
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [detailData]);
 
   return(
     <Wrapper>
-      <Container>
-        <ImageBox />
-        <Details>
-          <div>
-            <Name>Cocaine</Name>
-            <Line />            
-          </div>
-          <Table>
-            <tr>
-              <Title>Type</Title>
-              <Td>coca, natural drug</Td>              
-            </tr>
-            <tr>
-              <Title>Feature</Title>
-              <Td>
-                <div>◦ Extracted from coca leaves</div>
-                <div>◦ Fluffy white crystalline powder</div>
-                <div>◦ Nasal inhalation, injection, oral administration</div>
-              </Td>              
-            </tr>
-            <tr>
-              <Title>Side Effects</Title>
-              <Td>
-                <div>◦Extracted from</div>
-                <div>◦ Fluffy white</div>
-              </Td>              
-            </tr>
-          </Table>
-        </Details>
-      </Container>
+      {detailData && (
+        <>
+          <Container>
+            <ImageBox>
+              {detailData.images && detailData.images.length > 0 && (
+                <Slide src={detailData.images[currentImageIndex].image} alt={`Drug Image ${currentImageIndex}`} />
+              )}
+            </ImageBox>
+            <Details>
+              <div>
+                <Name>{detailData.drug_nm}</Name>
+                <Line />       
+              </div>
+              <Table>
+                <tr>
+                  <Title>Type</Title>
+                  <Td>{detailData.drug_type}</Td>              
+                </tr>
+                <tr>
+                  <Title>Feature</Title>
+                  <Td>
+                    {detailData.features && detailData.features.map((feature, index) => (
+                      <div key={index}>◦ {feature.drug_feature}</div>
+                    ))}
+                  </Td>              
+                </tr>
+                <tr>
+                  <Title>Side Effects</Title>
+                  <Td style={{ width: '600px'}}>
+                    {detailData.adrs && detailData.adrs.map((adr, index) => (
+                      <span key={index} style={{ display: 'inline-block', width: 'auto', marginRight: '10px' }}>◦{adr.adr_nm}</span>
+                    ))}
+                  </Td>              
+                </tr>
+              </Table>
+            </Details>
+          </Container>        
+        </>
+      )}
+
     </Wrapper>
   );
 };
@@ -98,6 +139,22 @@ const Td = styled.td`
   font-weight: 500;
   padding-left: 60px;
   line-height: 35px;
+`;
+
+const ImageBox = styled.div`
+  width: 350px;
+  height: 440px;
+  border-radius: 5px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  margin-left: 100px;
+`;
+
+const Slide = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export default Detail;

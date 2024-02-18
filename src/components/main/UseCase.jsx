@@ -3,13 +3,8 @@ import CaseList from "./CaseSlide";
 import styled from "styled-components";
 import axios from "axios";
 
-// const api = axios.create({
-//   baseURL: 'http://34.64.87.200:8000',
-// });
-
 export default function UseCase() {
   const [caseData, setCaseData] = useState([]);
-
 
   useEffect(() => {
     const fetchCaseData = async () => {
@@ -17,8 +12,6 @@ export default function UseCase() {
         const response = await axios.get('/safeguardian');
         if (response.status === 200) {
           setCaseData(response.data);
-        } else {
-          console.error(response.data);
         }
       } catch (error) {
         console.error('error: ', error);

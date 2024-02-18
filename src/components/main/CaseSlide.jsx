@@ -32,7 +32,15 @@ export default function CaseList({items}) {
       </Button>
       <Slide>
         {currentItems.map((item, index) => (
-          <CaseItem key={index} item={item} />
+          <a 
+            key={index} 
+            href={item.usage_ctnt} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            style={{ textDecoration: "none", color: "#3D3D3D"}}
+          >
+            <CaseItem key={index} item={item} />
+          </a>
         ))}
       </Slide>
       <Button onClick={goToNextPage}>
@@ -59,4 +67,5 @@ const Slide = styled.div`
 const Button = styled.button`
   border: none;
   background-color: transparent;
+  cusor: pointer;
 `;

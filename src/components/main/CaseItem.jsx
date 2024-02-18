@@ -3,7 +3,7 @@ import styled from "styled-components";
 const CaseItem = ({item}) => {
   return (
     <Wrapper>
-      <Image src={item.imageUrl} alt={item.usage_title} referrerPolicy="no-referrer" crossOrigin="anonymous" />
+      <Image src={item.usage_image} alt={item.usage_title} referrerPolicy="no-referrer" crossOrigin="anonymous" />
       <TitleContainer>{item.usage_title}</TitleContainer>
     </Wrapper>
   );

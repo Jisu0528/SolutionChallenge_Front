@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 
 const Detail = () => {
   const { drugid } = useParams();
-  console.log('drugId:', drugid);
   const [detailData, setDetailData] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 

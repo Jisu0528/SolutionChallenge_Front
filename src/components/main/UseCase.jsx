@@ -32,6 +32,7 @@ export default function UseCase() {
 
 const Wrapper = styled.div`
   height: 960px;
+  background-color: rgb(75, 78, 252, 0.05);
 `;
 
 const Title = styled.div`

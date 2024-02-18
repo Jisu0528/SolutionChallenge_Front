@@ -67,5 +67,5 @@ const Slide = styled.div`
 const Button = styled.button`
   border: none;
   background-color: transparent;
-  cusor: pointer;
+  cursor: pointer;
 `;

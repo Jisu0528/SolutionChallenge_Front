@@ -1,76 +1,41 @@
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import DrugItem from "./DrugItem";
 import Prev from "../../assests/prev.png";
 import Next from "../../assests/next.png";
-import pagination from "../../shared/Pagination";
 
-export default function DrugList({ selectedType }) {
-  // 임시 마약 데이터
-  const drugData = [
-    {id:0, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "natural drug", medicalUse: "microanesthesia"},
-    {id:1, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "natural drug", medicalUse: "microanesthesia"},
-    {id:2, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "synthetic drug", medicalUse: "microanesthesia"},
-    {id:3, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "synthetic drug", medicalUse: "microanesthesia"},
-    {id:4, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "psychotropic drug", medicalUse: "microanesthesia"},
-    {id:5, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "psychotropic drug", medicalUse: "microanesthesia"},
-    {id:6, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "hemp", medicalUse: "microanesthesia"},
-    {id:7, name: "poppy", imageUrl:require('../../assests/poppy.png'), type: "hemp", medicalUse: "microanesthesia"},
-  ];
-
-  const itemsPerPage = 7; // 페이지 당 보여줄 아이템 수
-  const {
-    currentPage,
-    currentItems,
-    totalPages,
-    paginate,
-    goToPrevPage,
-    goToNextPage,
-  } = pagination(
-    selectedType ? drugData.filter(drug => drug.type === selectedType) : drugData,
-    itemsPerPage
-  );
-
+export default function DrugList({ drugData }) {
   return (
     <>
       <Wrapper>
         <div>
-          <Thead>
+          <thead>
             <Tr>
               <Th></Th>
               <Th>Name</Th>
               <Th>Type</Th>
               <Th>medical use</Th>          
             </Tr>
-          </Thead>
-          <Tbody>
-            {currentItems.map((drugs, index) => (
-              <Link to={`/drugs/${drugs.name}`} key={index} style={{ textDecoration: "none", color: "#3D3D3D"}}>
-                <DrugItem key={drugs.id} index={index} item={drugs} />                
+          </thead>
+          <tbody>
+            {drugData.map((drugs, index) => (
+              <Link to={`/drugs/${drugs.drug_nm}`} key={index} style={{ textDecoration: "none", color: "#3D3D3D"}}>
+                <DrugItem key={drugs.drug_id} index={index} item={drugs} />                
               </Link>
             ))}        
-          </Tbody>        
+          </tbody>        
         </div>
 
-
         <PaginationContainer> 
-              <PaginationButton onClick={goToPrevPage}>
-                <img src={Prev} alt="left" />
-              </PaginationButton>
-              {Array.from({ length: totalPages }).map((_, index) => (
-                <PageButton
-                  key={index}
-                  onClick={() => paginate(index + 1)}
-                  isSelected={index + 1 === currentPage}
-                >
-                  {index + 1}
-                </PageButton>
-              ))}
-              <PaginationButton onClick={goToNextPage}>
-                <img src={Next} alt="right" />
-              </PaginationButton>
-          </PaginationContainer>
-
+          <PaginationButton>
+            <img src={Prev} alt="left" />
+          </PaginationButton>
+            <PageButton>1</PageButton>
+          <PaginationButton>
+            <img src={Next} alt="right" />
+          </PaginationButton>
+        </PaginationContainer>
       </Wrapper>    
     </>
 
@@ -91,10 +56,6 @@ const Wrapper = styled.table`
   overflow: hidden;
 `;
 
-const Thead = styled.thead`
-
-`;
-
 const Tr = styled.tr`
   display: flex;
   align-items: center;
@@ -107,10 +68,6 @@ const Tr = styled.tr`
 const Th = styled.th`
   width: 300px;
   display: flex;
-`;
-
-const Tbody = styled.tbody`
-
 `;
 
 const PaginationContainer = styled.div`
@@ -133,6 +90,6 @@ const PageButton = styled.button`
   border: none;
   margin: 10px;
   background-color: transparent;
-  color: ${(props) => (props.isSelected ? "#5263ff" : "#838383")};
+  color: #5263ff;
   font-size: 15px;
 `;

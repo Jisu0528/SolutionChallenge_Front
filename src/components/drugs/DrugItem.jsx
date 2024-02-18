@@ -4,13 +4,13 @@ const DrugItem = ({item}) => {
   return (
     <Wrapper>
       <Td>
-        <Image src={item.imageUrl} alt={item.name} />
+        <Image src={item.title_image} alt={item.drug_nm} />
       </Td>
       <Td>
-        {item.name}
+        {item.drug_nm}
       </Td>
-      <Td>{item.type}</Td>
-      <Td>{item.medicalUse}</Td>
+      <Td>{item.drug_type}</Td>
+      <Td>{item.medical_use}</Td>
     </Wrapper>
   );
 };

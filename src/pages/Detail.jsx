@@ -64,7 +64,7 @@ const Detail = () => {
                 </tr>
                 <tr>
                   <Title>Side Effects</Title>
-                  <Td style={{ width: '600px'}}>
+                  <Td>
                     {detailData.adrs && detailData.adrs.map((adr, index) => (
                       <span key={index} style={{ display: 'inline-block', width: 'auto', marginRight: '10px' }}>◦{adr.adr_nm}</span>
                     ))}
@@ -139,6 +139,7 @@ const Td = styled.td`
   font-weight: 500;
   padding-left: 60px;
   line-height: 35px;
+  width: 600px;
 `;
 
 const ImageBox = styled.div`

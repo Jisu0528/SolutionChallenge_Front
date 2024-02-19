@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Search from "../../assests/search.png";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const SearchBar = ({ containerWidth, containerHeight, imgWidth, imgHeight, inputFontSize }) => {
   const navigate = useNavigate();
@@ -10,11 +11,24 @@ const SearchBar = ({ containerWidth, containerHeight, imgWidth, imgHeight, input
   const onChange = (e) => {
     setSearch(e.target.value);
     console.log(search);
-  }
+  };
 
-  const handleSearch = () => {
-    navigate(`/drugs/${search}`);
-  }
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(`http://34.64.87.200:8000/safeguardian/search/?search=${search}`);
+      const data = response.data;
+      console.log(response);
+      
+      if (data) {
+        navigate(`/drugs/${data[0].drug_id}`);
+      } else {
+        // 일치하는 drug_nm이 없으면 경고
+        alert("일치하는 결과를 찾을 수 없습니다.");
+      }
+    } catch (error) {
+      console.error("검색 중 오류가 발생했습니다:", error);
+    }
+  };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {

@@ -9,4 +9,13 @@ module.exports = function(app) {
     })
 
   );
+
+  app.use(
+    '/main/generate',
+    createProxyMiddleware({
+      target: 'http://34.47.73.61:8000',
+      changeOrigin: true,
+    })
+
+  );
 };

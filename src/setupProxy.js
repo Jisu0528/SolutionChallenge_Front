@@ -18,4 +18,13 @@ module.exports = function(app) {
     })
 
   );
+
+  app.use(
+    '/api/predict',
+    createProxyMiddleware({
+      target: 'https://asia-northeast3-aiplatform.googleapis.com/v1/projects/50762632220/locations/asia-northeast3/endpoints/5218607640866717696:predict',
+      changeOrigin: true,
+    })
+
+  );
 };

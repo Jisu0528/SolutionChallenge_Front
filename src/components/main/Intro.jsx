@@ -14,7 +14,7 @@ const Intro = () => {
       <Text>
         This is to raise awareness of the risks of the drug. 
         Additional features include predicting mortality due to drug use, 
-        AI facial deformation due to drug abuse, and cases of unintentional drug use.
+        AI facial deformation due to drug abuse, and unintentional drug use cases, chat, and more.
       </Text>
       <Buttons>
         <Button onClick={() => navigate("/deathrate")}>

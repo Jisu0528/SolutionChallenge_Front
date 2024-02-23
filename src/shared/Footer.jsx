@@ -7,13 +7,26 @@ const Footer = () => {
       <Container>
         <Img src={Logo} />
         <People>
-          <Name>Jisu Han</Name>
+          <Name>Hyeok Kim</Name>
           <Role>
-            Frontend <br />
-            Design <br />
             Backend <br />
+            Data Analysis <br /><br />
           </Role>
-          <Email href="010528jisu@gmail.com">0528jisu@gmail.com</Email>
+          <Email href="rlagur258@gmail.com">rlagur258@gmail.com</Email>
+        </People>
+        <People>
+          <Name>Yumin LEE</Name>
+          <Role>
+            AI <br /><br /><br />
+          </Role>
+          <Email  href="yuminyyy@gmail.com">yuminyyy@gmail.com</Email>
+        </People>
+        <People>
+          <Name>Seockmin Chang</Name>
+          <Role>
+            AI <br /><br /><br />
+          </Role>
+          <Email href="ssk07079@gmail.com">ssk07079@gmail.com</Email>
         </People>
         <People>
           <Name>Jisu Han</Name>
@@ -22,25 +35,7 @@ const Footer = () => {
             Design <br />
             Backend <br />
           </Role>
-          <Email>0528jisu@gmail.com</Email>
-        </People>
-        <People>
-          <Name>Jisu Han</Name>
-          <Role>
-            Frontend <br />
-            Design <br />
-            Backend <br />
-          </Role>
-          <Email>0528jisu@gmail.com</Email>
-        </People>
-        <People>
-          <Name>Jisu Han</Name>
-          <Role>
-            Frontend <br />
-            Design <br />
-            Backend <br />
-          </Role>
-          <Email>0528jisu@gmail.com</Email>
+          <Email href="0528jisu@gmail.com">0528jisu@gmail.com</Email>
         </People>
       </Container>
       <CopyRight> ⓒ Copyright All rights reserved DrugGuadian</CopyRight>
@@ -65,7 +60,7 @@ const Container = styled.div`
 `;
 
 const Img = styled.img`
-  width: 208px;
+  width: 148px;
   height: 77px;
   padding-right: 100px;
 `;
